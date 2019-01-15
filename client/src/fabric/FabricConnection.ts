@@ -124,15 +124,16 @@ export abstract class FabricConnection implements IFabricConnection {
         }
     }
 
-    public async instantiateChaincode(name: string, version: string, channelName: string, fcn: string, args: Array<string>): Promise<any> {
+    public async instantiateChaincode(name: string, version: string, channelName: string, fcn: string, args: Array<string>, collectionConfigPath: string): Promise<any> {
 
         const transactionId: Client.TransactionId = this.gateway.getClient().newTransactionID();
         const instantiateRequest: Client.ChaincodeInstantiateUpgradeRequest = {
-            chaincodeId: name,
-            chaincodeVersion: version,
-            txId: transactionId,
-            fcn: fcn,
-            args: args
+            'chaincodeId': name,
+            'chaincodeVersion': version,
+            'txId': transactionId,
+            'fcn': fcn,
+            'args': args,
+            'collections-config': collectionConfigPath
         };
 
         const network: Network = await this.gateway.getNetwork(channelName);

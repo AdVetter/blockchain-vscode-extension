@@ -329,7 +329,7 @@ describe('FabricConnection', () => {
         it('should instantiate a chaincode', async () => {
             const output: VSCodeOutputAdapter = VSCodeOutputAdapter.instance();
             const outputSpy: sinon.SinonSpy = mySandBox.spy(output, 'log');
-            const responsePayload: any = await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1']).should.not.be.rejected;
+            const responsePayload: any = await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1'], '').should.not.be.rejected;
             fabricChannelStub.sendInstantiateProposal.should.have.been.calledWith({
                 chaincodeId: 'myChaincode',
                 chaincodeVersion: '0.0.1',
@@ -345,7 +345,7 @@ describe('FabricConnection', () => {
             const output: VSCodeOutputAdapter = VSCodeOutputAdapter.instance();
             const outputSpy: sinon.SinonSpy = mySandBox.spy(output, 'log');
             getChanincodesStub.withArgs('myChannel').resolves([{ name: 'myChaincode' }]);
-            await fabricConnection.instantiateChaincode('myChaincode', '0.0.2', 'myChannel', 'instantiate', ['arg1']).should.be.rejectedWith('The name of the contract you tried to instantiate is already instantiated');
+            await fabricConnection.instantiateChaincode('myChaincode', '0.0.2', 'myChannel', 'instantiate', ['arg1'], '').should.be.rejectedWith('The name of the contract you tried to instantiate is already instantiated');
             fabricChannelStub.sendUpgradeProposal.should.not.have.been.called;
 
             outputSpy.should.not.have.been.calledWith("Upgrading with function: 'instantiate' and arguments: 'arg1'");
@@ -353,7 +353,7 @@ describe('FabricConnection', () => {
 
         it('should instantiate a chaincode and can return empty payload response', async () => {
             fabricTransactionStub._validatePeerResponses.returns(null);
-            const nullResponsePayload: any = await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1']);
+            const nullResponsePayload: any = await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1'], '');
             fabricChannelStub.sendInstantiateProposal.should.have.been.calledWith({
                 chaincodeId: 'myChaincode',
                 chaincodeVersion: '0.0.1',
@@ -366,12 +366,12 @@ describe('FabricConnection', () => {
 
         it('should throw an error if cant create event handler', async () => {
             fabricTransactionStub._createTxEventHandler.returns();
-            await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1']).should.be.rejectedWith('Failed to create an event handler');
+            await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1'], '').should.be.rejectedWith('Failed to create an event handler');
         });
 
         it('should throw an error if submitting the transaction failed', async () => {
             fabricChannelStub.sendTransaction.returns({ status: 'FAILED' });
-            await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1']).should.be.rejectedWith('Failed to send peer responses for transaction 1234 to orderer. Response status: FAILED');
+            await fabricConnection.instantiateChaincode('myChaincode', '0.0.1', 'myChannel', 'instantiate', ['arg1'], '').should.be.rejectedWith('Failed to send peer responses for transaction 1234 to orderer. Response status: FAILED');
         });
     });
 

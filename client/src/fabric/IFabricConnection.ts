@@ -33,7 +33,7 @@ export interface IFabricConnection {
 
     installChaincode(packageRegistryEntry: PackageRegistryEntry, peerName: string): Promise<void>;
 
-    instantiateChaincode(chaincodeName: string, version: string, channel: string, fcn: string, args: Array<string>): Promise<void>;
+    instantiateChaincode(chaincodeName: string, version: string, channel: string, fcn: string, args: Array<string>, collectionConfigPath: string): Promise<void>;
 
     upgradeChaincode(chaincodeName: string, version: string, channel: string, fcn: string, args: Array<string>): Promise<void>;
 

@@ -92,12 +92,15 @@ export async function instantiateSmartContract(channelTreeItem?: ChannelTreeItem
             progress.report({message: 'Instantiating Smart Contract'});
             const fabricClientConnection: IFabricConnection = FabricConnectionManager.instance().getConnection();
 
+            // One path for all connections
+            const collectionsConfigPath: string = vscode.workspace.getConfiguration().get('fabric.collectionsConfigPath');
+
             if (packageEntry) {
                 // If the package has been installed as part of this command
-                await fabricClientConnection.instantiateChaincode(packageEntry.name, packageEntry.version, channelName, fcn, args);
+                await fabricClientConnection.instantiateChaincode(packageEntry.name, packageEntry.version, channelName, fcn, args, collectionsConfigPath);
             } else {
                 // If the package was already installed
-                await fabricClientConnection.instantiateChaincode(data.packageEntry.name, data.packageEntry.version, channelName, fcn, args);
+                await fabricClientConnection.instantiateChaincode(data.packageEntry.name, data.packageEntry.version, channelName, fcn, args, collectionsConfigPath);
             }
 
             Reporter.instance().sendTelemetryEvent('instantiateCommand');
