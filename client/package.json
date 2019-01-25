@@ -34,32 +34,7 @@
     ],
     "generatorFabricVersion": "0.0.13",
     "activationEvents": [
-        "onView:blockchainExplorer",
-        "onCommand:blockchainExplorer.addConnectionEntry",
-        "onCommand:blockchainExplorer.deleteConnectionEntry",
-        "onCommand:blockchainExplorer.addConnectionIdentityEntry",
-        "onCommand:blockchainExplorer.connectEntry",
-        "onCommand:blockchainExplorer.disconnectEntry",
-        "onCommand:blockchainExplorer.refreshEntry",
-        "onCommand:blockchain.createSmartContractProjectEntry",
-        "onCommand:blockchainExplorer.installSmartContractEntry",
-        "onCommand:blockchainExplorer.instantiateSmartContractEntry",
-        "onCommand:blockchainAPackageExplorer.refreshEntry",
-        "onCommand:blockchainAPackageExplorer.packageSmartContractProjectEntry",
-        "onCommand:blockchainAPackageExplorer.deleteSmartContractPackageEntry",
-        "onCommand:blockchainAPackageExplorer.exportSmartContractPackageEntry",
-        "onCommand:blockchainExplorer.startFabricRuntime",
-        "onCommand:blockchainExplorer.stopFabricRuntime",
-        "onCommand:blockchainExplorer.restartFabricRuntime",
-        "onCommand:blockchainExplorer.teardownFabricRuntime",
-        "onCommand:blockchainExplorer.toggleFabricRuntimeDevMode",
-        "onCommand:blockchainExplorer.openFabricRuntimeTerminal",
-        "onCommand:blockchainExplorer.exportConnectionDetailsEntry",
-        "onCommand:blockchainExplorer.editConnectionEntry",
-        "onCommand:blockchainExplorer.testSmartContractEntry",
-        "onCommand:blockchainExplorer.submitTransactionEntry",
-        "onCommand:blockchainExplorer.upgradeSmartContractEntry",
-        "onDebug"
+        "*"
     ],
     "actualActivationEvents": {
         "other": [
