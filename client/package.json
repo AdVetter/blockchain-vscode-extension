@@ -1,7 +1,7 @@
 {
-    "name": "ibm-blockchain-platform",
-    "displayName": "IBM Blockchain Platform",
-    "description": "End to end extension for Hyperledger Fabric developers. Develop and test your blockchain smart contracts and client applications on your local machine, and package your projects for deployment into IBM Blockchain Platform runtimes.",
+    "name": "ibm-blockchain-platform-priv-collection",
+    "displayName": "IBM Blockchain Platform PRIV COLLECTION",
+    "description": "MODIEFIED VERSION OF THE ORIGINAL EXTENSION: End to end extension for Hyperledger Fabric developers. Develop and test your blockchain smart contracts and client applications on your local machine, and package your projects for deployment into IBM Blockchain Platform runtimes.",
     "author": "IBMBlockchain",
     "keywords": [
         "blockchain",
