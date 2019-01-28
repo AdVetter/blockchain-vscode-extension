@@ -1,5 +1,6 @@
 ==== MODIFIED VERSION OF THE ORIGINAL EXTENSION ====
 
+* Modified version of the original extension which can be found [here](https://github.com/IBM-Blockchain/blockchain-vscode-extension)
 * Added ```fabric.collectionsConfigPath``` to set absolute path to your collection config
 
 # IBM Blockchain Platform Extension for VSCode
