@@ -44,7 +44,7 @@ describe('ExtensionUtil Tests', () => {
         it('should get the packageJSON', async () => {
             await ExtensionUtil.activateExtension();
             const packageJSON: any = ExtensionUtil.getPackageJSON();
-            packageJSON.name.should.equal('ibm-blockchain-platform');
+            packageJSON.name.should.equal('ibm-blockchain-platform-priv-collection');
         });
     });
 
@@ -52,7 +52,7 @@ describe('ExtensionUtil Tests', () => {
         it('should activate the extension', async () => {
             await ExtensionUtil.activateExtension();
 
-            const isActive: boolean = vscode.extensions.getExtension('IBMBlockchain.ibm-blockchain-platform').isActive;
+            const isActive: boolean = vscode.extensions.getExtension('IBMBlockchain.ibm-blockchain-platform-priv-collection').isActive;
             isActive.should.equal(true);
         });
     });
